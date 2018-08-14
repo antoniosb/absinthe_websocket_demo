@@ -15,6 +15,6 @@ defmodule DemoClient.Cache.Timesheet do
   def changeset(timesheet, attrs) do
     timesheet
     |> cast(attrs, [:notes, :employee_email, :employee_id])
-    |> validate_required([:notes, :employee_email, :employee_id])
+    |> validate_required([:notes, :employee_email])
   end
 end

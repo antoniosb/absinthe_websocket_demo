@@ -19,6 +19,8 @@ defmodule DemoServerWeb.Router do
     get "/", PageController, :index
   end
 
+  resources "/employees", EmployeeController
+
   # Other scopes may use custom stacks.
   # scope "/api", DemoServerWeb do
   #   pipe_through :api

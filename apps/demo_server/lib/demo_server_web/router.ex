@@ -17,9 +17,10 @@ defmodule DemoServerWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/employees", EmployeeController
   end
 
-  resources "/employees", EmployeeController
 
   # Other scopes may use custom stacks.
   # scope "/api", DemoServerWeb do

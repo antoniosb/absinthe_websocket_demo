@@ -17,9 +17,9 @@ defmodule DemoClientWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-  end
 
-  resources "/timesheets", TimesheetController
+    resources "/timesheets", TimesheetController
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", DemoClientWeb do

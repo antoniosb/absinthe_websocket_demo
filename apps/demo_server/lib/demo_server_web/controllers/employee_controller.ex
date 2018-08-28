@@ -17,6 +17,7 @@ defmodule DemoServerWeb.EmployeeController do
   def create(conn, %{"employee" => employee_params}) do
     case Cache.create_employee(employee_params) do
       {:ok, employee} ->
+        Absinthe.Subscription.publish(DemoServerWeb.Endpoint, employee, employee_created: true) # add this line
         conn
         |> put_flash(:info, "Employee created successfully.")
         |> redirect(to: employee_path(conn, :show, employee))

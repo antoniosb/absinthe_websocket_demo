@@ -21,4 +21,14 @@ defmodule DemoServerQLApi.Client do
       variables
     )
   end
+
+  defp handle_subscribe_to(subscription_name, mod) when subscription_name in [:employee_created] do
+      do_subscribe(
+        mod,
+        subscription_name,
+        DemoServerQLApi.Schema.Employee,
+        apply(DemoServerQLApi.Subscription.Employee, subscription_name, [])
+      )
+  end
 end
+

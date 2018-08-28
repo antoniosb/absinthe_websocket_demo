@@ -14,6 +14,13 @@ config :demo_client, DemoClientWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+config :demo_client, DemoServerQLApi,
+  client: DemoServerQLApi.Client,
+  query_caller: CommonGraphQLClient.Caller.Http,
+  http_api_url: "http://127.0.0.1:4000/api",
+  subscription_caller: CommonGraphQLClient.Caller.WebSocket,
+  websocket_api_url: "ws://127.0.0.1:4000/socket/websocket"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
